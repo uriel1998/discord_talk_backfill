@@ -2,6 +2,8 @@
 
 Backfill Discord channel history into Nextcloud Talk rooms using `matterbridge.toml` account and gateway mappings.
 
+On startup, the script creates its own project virtual environment (`.venv`) if needed, re-runs itself inside that environment, and installs dependencies from `requirements.txt` automatically.
+
 This tool only backfills `discord.*` to `nctalk.*` gateway pairs. Other bridge/account types in `matterbridge.toml` are ignored.
 
 ## Features
