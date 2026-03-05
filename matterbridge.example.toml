@@ -1,0 +1,46 @@
+# Copy to matterbridge.toml and fill in real values.
+# This template is designed for discord_to_talk_backfill.py.
+
+[discord]
+[discord.mydiscord]
+Token="DISCORD_BOT_TOKEN_HERE"
+Server="DISCORD_SERVER_ID"
+AutoWebhooks=true
+RemoteNickFormat="[🗣️] <{NICK}> "
+PreserveThreading=true
+
+[nctalk]
+[nctalk.cloud]
+Server="https://nextcloud.example.com"
+Login="nextcloud_username"
+Password="nextcloud_app_password"
+RemoteNickFormat="[📬] <{NICK}> "
+
+# Optional matterbridge settings preserved for compatibility.
+ReplaceMessages = [
+    ["(?s)^(.*?\\nhttps://cdn\\.discordapp\\.com/attachments/\\S+).*$", "$1"],
+    ["(?m)^cdn\\.discordapp\\.com/attachments/\\S+\\s*$", ""],
+    ["(?m)\\n{3,}", "\\n\\n"]
+]
+
+# Each enabled gateway should include at least one discord.* and one nctalk.* inout.
+# The backfill script reads these pairs and backfills Discord -> Nextcloud Talk only.
+[[gateway]]
+name="general"
+enable=true
+[[gateway.inout]]
+account="nctalk.cloud"
+channel="nextcloud_talk_room_token"
+[[gateway.inout]]
+account="discord.mydiscord"
+channel="ID:123456789012345678"
+
+[[gateway]]
+name="another-room"
+enable=true
+[[gateway.inout]]
+account="nctalk.cloud"
+channel="another_talk_room_token"
+[[gateway.inout]]
+account="discord.mydiscord"
+channel="ID:987654321098765432"
