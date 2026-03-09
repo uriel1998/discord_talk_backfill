@@ -6,7 +6,7 @@
 Token="DISCORD_BOT_TOKEN_HERE"
 Server="DISCORD_SERVER_ID"
 AutoWebhooks=true
-RemoteNickFormat="[🗣️] <{NICK}> "
+RemoteNickFormat="[PROTOCOL️] <{NICK}> "
 PreserveThreading=true
 
 [nctalk]
@@ -14,7 +14,7 @@ PreserveThreading=true
 Server="https://nextcloud.example.com"
 Login="nextcloud_username"
 Password="nextcloud_app_password"
-RemoteNickFormat="[📬] <{NICK}> "
+RemoteNickFormat="[PROTOCOL] <{NICK}> "
 
 # Optional matterbridge settings preserved for compatibility.
 ReplaceMessages = [
